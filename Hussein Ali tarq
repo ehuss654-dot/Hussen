@@ -1,0 +1,15 @@
+def check_password_strength(password):
+    length = len(password) >= 8
+    has_upper = any(char .isupper() for char in password)
+    has_lower = any(char .islower() for char in password)
+    has_digit = any(char .isdigit() for char in password)
+    has_special = any(not char .isdigit() for char in password)
+    strength_score = sum([length,has_upper,has_lower,has_digit,has_special])
+    if strength_score == 5:
+        print("password is strong")
+    elif strength_score >= 3:
+        print("password is medium")
+    else:
+        print("password is weak")
+user_password = input("enter your password")
+check_password_strength(user_password)
